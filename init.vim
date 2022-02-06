@@ -4,6 +4,9 @@
 " # numeros laterales
 set number
 set relativenumber
+" # habilitar mouse
+set mouse=a
+
 
 """ Plugins
 call plug#begin('~/.config/nvim/plugged')
@@ -43,3 +46,18 @@ call plug#end()
 
 """ Asignar tema
 colorscheme dracula
+
+""" Configuracion atajos de teclado
+" # asignacion de tecla leader
+let mapleader=" "
+
+" guardar
+nnoremap <Leader>w :w<CR>
+" salir
+nnoremap <Leader>q :q<CR>
+" guardar y salir
+nnoremap <Leader>wq :wq<CR>
+" easymotion
+nmap <Leader>s <Plug>(easymotion-s2)
+" nerdtree
+map <Leader>nt :NERDTreeFind<CR>
