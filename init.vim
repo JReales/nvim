@@ -61,3 +61,9 @@ nnoremap <Leader>wq :wq<CR>
 nmap <Leader>s <Plug>(easymotion-s2)
 " nerdtree
 map <Leader>nt :NERDTreeFind<CR>
+
+
+" para correr scripts en python
+autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+
