@@ -6,12 +6,23 @@ set number
 set relativenumber
 " # habilitar mouse
 set mouse=a
+" # usar espacios en lugar de tabulaciones
+set shiftwidth=1
+set expandtab
+set autoindent
+" # sintaxis
+syntax enable
+syntax on
+
+" # copia en vim lo que este en el portapapeles
+set clipboard=unnamed
+" # limite de colimna
+set colorcolumn=80
 
 
 """ Plugins
 call plug#begin('~/.config/nvim/plugged')
 
-""" escritura (typing)
 " autocompletar parentecis
 Plug 'chun-yang/auto-pairs'
 " para las etiquetas de algunos lenguajes
@@ -39,17 +50,25 @@ Plug 'itchyny/lightline.vim'
 " nerdtree
 Plug 'scrooloose/nerdtree'
 
+" COC
+" para auto	completado
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Temas
 Plug 'dracula/vim', {'as' : 'dracula'}
+Plug 'iCyMind/NeoSolarized'
 
 call plug#end()
 
 """ Asignar tema
-colorscheme dracula
+"colorscheme dracula
+set termguicolors  " Activa true colors en la terminal
+set background=dark  " Fondo del tema: dark/light
+colorscheme NeoSolarized  " Activa tema NeoSolarized
 
 """ Configuracion atajos de teclado
 " # asignacion de tecla leader
-let mapleader=" "
+let mapleader=","
 
 " guardar
 nnoremap <Leader>w :w<CR>
@@ -64,6 +83,6 @@ map <Leader>nt :NERDTreeFind<CR>
 
 
 " para correr scripts en python
-autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
-autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+"autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+"autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
